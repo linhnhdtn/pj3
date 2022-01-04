@@ -12,11 +12,13 @@
     },
     "version": "2.4.3-p1",
     "require": {
+        "box/spout": "~2.7",
         "magento/composer-dependency-version-audit-plugin": "~0.1",
         "magento/composer-root-update-plugin": "~1.1",
         "magento/product-community-edition": "2.4.3-p1",
         "mageplaza/magento-2-one-step-checkout-extension": "^4.0",
-        "mageplaza/module-core": "^1.4"
+        "mageplaza/module-core": "^1.4",
+        "salsify/json-streaming-parser": "^8.2"
     },
     "autoload": {
         "exclude-from-classmap": [
