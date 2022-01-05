@@ -337,6 +337,7 @@ return [
         'Klarna_Kp' => 1,
         'Klarna_Onsitemessaging' => 1,
         'Klarna_KpGraphQl' => 1,
+        'Lillik_PriceDecimal' => 1,
         'Mageplaza_Core' => 1,
         'Mageplaza_GeoIP' => 1,
         'Mageplaza_Osc' => 1,
