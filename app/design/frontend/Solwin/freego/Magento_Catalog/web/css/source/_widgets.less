@@ -132,6 +132,7 @@
             .actions-secondary {
                 > .action {
                     &:extend(.abs-actions-addto all);
+                    color: #8c8c8c;
                     &:before {
                         margin: 0;
                     }
@@ -278,7 +279,7 @@
 
     .block.widget .products-grid .product-item,
     .page-layout-1column .block.widget .products-grid .product-item,
-    .page-layout-3columns .block.widget .products-grid .product-item { 
+    .page-layout-3columns .block.widget .products-grid .product-item {
         width: 32%;
         margin-left: calc(~"(100% - 3 * 32%) / 2");
         padding: 0;
@@ -319,7 +320,7 @@
 //--------------------------------------
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-    .block.widget .products-grid .product-item{ 
+    .block.widget .products-grid .product-item{
         width: 32%;
         margin-left: calc(~"(100% - 3 * 32%) / 2");
         padding: 0;
@@ -353,7 +354,7 @@
             }
         }
     }
-    .page-layout-1column .block.widget .products-grid .product-item { 
+    .page-layout-1column .block.widget .products-grid .product-item {
         width: 23.439%;
         margin-left: calc(~"(100% - 4 * 23.439%) / 3");
         padding: 0;
@@ -390,7 +391,7 @@
             }
         }
     }
-    .page-layout-3columns .block.widget .products-grid .product-item { 
+    .page-layout-3columns .block.widget .products-grid .product-item {
         width: 48.5%;
         margin-left: calc(~"(100% - 2 * 48.5%) / 1");
         padding: 0;
@@ -430,7 +431,7 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
-    .block.widget .products-grid .product-item { 
+    .block.widget .products-grid .product-item {
         width: 18.99%;
     }
     .page-layout-1column .block.widget .products-grid .product-item {
@@ -473,7 +474,7 @@
             }
         }
     }
-    .page-layout-3columns .block.widget .products-grid .product-item { 
+    .page-layout-3columns .block.widget .products-grid .product-item {
         width: 23.439%;
     }
     .block.widget .products-grid .product-items { margin: 0; }

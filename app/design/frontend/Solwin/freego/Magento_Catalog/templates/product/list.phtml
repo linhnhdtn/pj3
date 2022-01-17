@@ -90,7 +90,7 @@ $outofstockImagewidth = $outofstock_helper->getConfigValue('outofstock_product/o
                                 }
                             endif;
                             ?>
-                            <div class="pro-overlay"></div>
+<!--                            <div class="pro-overlay"></div>-->
                             <?php if ($viewMode == 'list') { ?>
                             <?php
                             $helper = $this->helper('Solwin\Cpanel\Helper\Data');
@@ -157,6 +157,27 @@ $outofstockImagewidth = $outofstock_helper->getConfigValue('outofstock_product/o
                                                 <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
                                                 <input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
                                                 <?php echo $block->getBlockHtml('formkey') ?>
+                                                <div class="">
+                                                    <div class="control">
+                                                        <div>
+                                                            <button title="" type="button"
+                                                                    data-role="change_cart_qty" class="decrease"
+                                                                    data-qty="-1" class="decrease"> - </button>
+                                                        </div>
+                                                        <input type="number" class="qty" name="qty"
+                                                               maxlength="12"
+                                                               value="1"
+                                                               title="<?php echo __('Qty') ?>"
+                                                               class="input-text qty"
+                                                               data-validate=""/>
+
+                                                        <div class="qty-ctl">
+                                                            <button title="<?= __('Increase') ?>" type="button"
+                                                                    data-role="change_cart_qty" data-qty="1"
+                                                                    class="increase"> + </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <button type="submit"
                                                         title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
                                                         class="action tocart primary">
