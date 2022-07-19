@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ff3455b94f2e90fba944a75e84db9d6",
+    "content-hash": "93f3ad9de49d6e2325fe6f1338fea2d2",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -17785,6 +17785,51 @@
             "time": "2021-11-29T09:08:06+00:00"
         },
         {
+            "name": "mageplaza/magento-2-product-slider",
+            "version": "4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-product-slider.git",
+                "reference": "719f98ad3af6ad0e8d7eca3a441b16ce1940c620"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-product-slider/zipball/719f98ad3af6ad0e8d7eca3a441b16ce1940c620",
+                "reference": "719f98ad3af6ad0e8d7eca3a441b16ce1940c620",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.4.5"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Productslider\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Magento 2 Product Slider",
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-product-slider/issues",
+                "source": "https://github.com/mageplaza/magento-2-product-slider/tree/v4.0.2"
+            },
+            "time": "2021-08-13T11:17:50+00:00"
+        },
+        {
             "name": "mageplaza/module-core",
             "version": "1.4.11",
             "source": {
@@ -28427,5 +28472,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
