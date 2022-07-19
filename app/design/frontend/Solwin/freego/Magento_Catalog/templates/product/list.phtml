@@ -90,7 +90,7 @@ $outofstockImagewidth = $outofstock_helper->getConfigValue('outofstock_product/o
                                 }
                             endif;
                             ?>
-                            <div class="pro-overlay"></div>
+<!--                            <div class="pro-overlay"></div>-->
                             <?php if ($viewMode == 'list') { ?>
                             <?php
                             $helper = $this->helper('Solwin\Cpanel\Helper\Data');
@@ -157,6 +157,31 @@ $outofstockImagewidth = $outofstock_helper->getConfigValue('outofstock_product/o
                                                 <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
                                                 <input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
                                                 <?php echo $block->getBlockHtml('formkey') ?>
+                                                <div class="">
+                                                    <div class="control">
+                                                        <div>
+                                                            <button type="button"
+                                                                    data-role="change_cart_qty"
+                                                                    class="qty-dec qty-button qtyminus"
+                                                            > - </button>
+                                                        </div>
+                                                        <input type="number"
+                                                               class="input-text qty"
+                                                               name="qty"
+                                                               value="1"
+                                                               title="<?php echo __('Qty') ?>"
+                                                               data-validate=""
+                                                               data-sku="<?= $_product->getSku() ?>"
+                                                        />
+
+                                                        <div class="qty-ctl">
+                                                            <button type="button"
+                                                                    data-role="change_cart_qty"
+                                                                    class="qty-inc qty-button qtyplus"
+                                                            > + </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <button type="submit"
                                                         title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
                                                         class="action tocart primary">
@@ -353,3 +378,13 @@ $outofstockImagewidth = $outofstock_helper->getConfigValue('outofstock_product/o
         </script>
     <?php endif; ?>
 <?php endif; ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Catalog/js/cart/add_cart":{
+           }
+        }
+    }
+</script>
+

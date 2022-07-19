@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="dtn" translate="label" sortOrder="201">
+            <label>Promo</label>
+        </tab>
+        <section id="dtn_promo" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Data</label>
+            <tab>dtn</tab>
+            <resource>Dtn_Rules::promotion_data_product</resource>
+            <group id="general_setting"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Promo</label>
+                <field id="fieldname"
+                       translate="label"
+                       sortOrder="20"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <backend_model>Dtn\Rules\Block\Adminhtml\System\Config\ArraySerialized</backend_model>
+                    <frontend_model>Dtn\Rules\Block\Adminhtml\System\Config\DynamicFieldData</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
