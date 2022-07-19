@@ -160,21 +160,25 @@ $outofstockImagewidth = $outofstock_helper->getConfigValue('outofstock_product/o
                                                 <div class="">
                                                     <div class="control">
                                                         <div>
-                                                            <button title="" type="button"
-                                                                    data-role="change_cart_qty" class="decrease"
-                                                                    data-qty="-1" class="decrease"> - </button>
+                                                            <button type="button"
+                                                                    data-role="change_cart_qty"
+                                                                    class="qty-dec qty-button qtyminus"
+                                                            > - </button>
                                                         </div>
-                                                        <input type="number" class="qty" name="qty"
-                                                               maxlength="12"
+                                                        <input type="number"
+                                                               class="input-text qty"
+                                                               name="qty"
                                                                value="1"
                                                                title="<?php echo __('Qty') ?>"
-                                                               class="input-text qty"
-                                                               data-validate=""/>
+                                                               data-validate=""
+                                                               data-sku="<?= $_product->getSku() ?>"
+                                                        />
 
                                                         <div class="qty-ctl">
-                                                            <button title="<?= __('Increase') ?>" type="button"
-                                                                    data-role="change_cart_qty" data-qty="1"
-                                                                    class="increase"> + </button>
+                                                            <button type="button"
+                                                                    data-role="change_cart_qty"
+                                                                    class="qty-inc qty-button qtyplus"
+                                                            > + </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -374,3 +378,13 @@ $outofstockImagewidth = $outofstock_helper->getConfigValue('outofstock_product/o
         </script>
     <?php endif; ?>
 <?php endif; ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Catalog/js/cart/add_cart":{
+           }
+        }
+    }
+</script>
+
