@@ -1,0 +1,66 @@
+<?php
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) : ?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()) : ?>
+                <div class="field qty">
+                    <div>
+                        <button type="button"
+                                data-role="change_cart_qty"
+                                class="qty-dec qty-button qtyminus"
+                        > -
+                        </button>
+                    </div>
+                    <input type="number"
+                           class="input-text qty"
+                           name="qty"
+                           value="1"
+                           title="<?php echo __('Qty') ?>"
+                           data-validate=""
+                           data-sku="<?= $_product->getSku() ?>"
+                    />
+                    <div class="qty-ctl">
+                        <button type="button"
+                                data-role="change_cart_qty"
+                                class="qty-inc qty-button qtyplus"
+                        > +
+                        </button>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="actions">
+                <button type="submit"
+                        title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button" disabled>
+                    <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                </button>
+                <?= $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+
+
+</script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Catalog/js/cart/add_cart":{
+           }
+        }
+    }
+
+</script>
+
