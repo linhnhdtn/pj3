@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="campaign" resource="default" engine="innodb" comment="campaign">
+        <column xsi:type="int" name="campaign_id" unsigned="true" nullable="false" identity="true"
+                comment=" Campaign Id"/>
+        <column xsi:type="varchar" name="name_campaign" nullable="true" comment="name campaign"/>
+        <column xsi:type="int" name="status" nullable="false" comment="Status"/>
+        <column xsi:type="int" name="enable" nullable="false" comment="Enable"/>
+        <column xsi:type="timestamp" name="start_date" nullable="false" on_update="false" comment="Start Date"
+                default="CURRENT_TIMESTAMP"/>
+        <column xsi:type="timestamp" name="end_date" nullable="false" on_update="false" comment="End Date"
+                default="CURRENT_TIMESTAMP"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" comment="Created At"
+                default="CURRENT_TIMESTAMP"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" on_update="false" comment="Updated At"
+                default="CURRENT_TIMESTAMP"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="campaign_id"/>
+        </constraint>
+    </table>
+    <table name="campaign_page" resource="default" engine="innodb" comment="campaign page">
+        <column xsi:type="int" name="campaign_page_id" unsigned="true" nullable="false" identity="true"
+                comment=" Campaign Page Id"/>
+        <column xsi:type="smallint" name="cms_page_id" unsigned="false" nullable="false" identity="false"
+                comment="Cms Page ID"/>
+        <column xsi:type="varchar" name="title" nullable="true" comment="Page Title"/>
+        <column xsi:type="int" name="campaign_id" padding="11" unsigned="true" nullable="true" comment="Campaign ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="campaign_page_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="CAMPAIGN_PAGE_CAMPAIGN_ID_CAMPAIGN_CAMPAIGN_ID"
+                    table="campaign_page"
+                    column="campaign_id"
+                    referenceTable="campaign"
+                    referenceColumn="campaign_id"
+        />
+        <constraint xsi:type="foreign" referenceId="CAMPAIGN_PAGE_CMS_PAGE_ID_CMS_PAGE_PAGE_ID"
+                    table="campaign_page"
+                    column="cms_page_id"
+                    referenceTable="cms_page"
+                    referenceColumn="page_id"
+        />
+    </table>
+    <table name="campaign_block" resource="default" engine="innodb" comment="campaign block">
+        <column xsi:type="int" name="campaign_block_id" unsigned="true" nullable="false" identity="true"
+                comment=" Campaign Block Id"/>
+        <column xsi:type="smallint" name="cms_block_id" unsigned="false" nullable="false" identity="false"
+                comment="Cms Block ID"/>
+        <column xsi:type="varchar" name="title" nullable="true" comment="Block Title"/>
+        <column xsi:type="int" name="campaign_id" padding="11" unsigned="true" nullable="false" comment="Campaign ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="campaign_block_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FK_CAMPAIGN_BLOCK"
+                    table="campaign_block"
+                    column="campaign_id"
+                    referenceTable="campaign"
+                    referenceColumn="campaign_id"
+        />
+        <constraint xsi:type="foreign" referenceId="FK_CAMPAIGN_BLOCK_CMS_BLOCK"
+                    table="campaign_page"
+                    column="cms_block_id"
+                    referenceTable="cms_block"
+                    referenceColumn="block_id"
+        />
+    </table>
+    <table name="campaign_product" resource="default" engine="innodb" comment="campaign_product">
+        <column xsi:type="int" name="campaign_product_id" unsigned="true" nullable="false" identity="true"
+                comment=" Campaign Product Id"/>
+        <column xsi:type="int" name="product_id" padding="11" unsigned="true" nullable="true" comment="Product ID"/>
+        <column xsi:type="int" name="product_sku" padding="11" unsigned="false" nullable="true" comment="Product SKU"/>
+        <column xsi:type="varchar" name="product_name" nullable="true" comment="Product Name"/>
+        <column xsi:type="int" name="campaign_id" padding="11" unsigned="true" nullable="false" comment="Campaign ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="campaign_product_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FK_CAMPAIGN_PRODUCT"
+                    table="campaign_product"
+                    column="campaign_id"
+                    referenceTable="campaign"
+                    referenceColumn="campaign_id"
+        />
+        <constraint xsi:type="foreign" referenceId="FK_CAMPAIGN_PRODUCT_CATALOG_PRODUCT_ENTITY"
+                    table="campaign_product"
+                    column="product_id"
+                    referenceTable="catalog_product_entity"
+                    referenceColumn="entity_id"
+        />
+    </table>
+</schema>
