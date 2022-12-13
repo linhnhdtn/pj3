@@ -330,6 +330,7 @@ return [
         'Dotdigitalgroup_ChatGraphQl' => 1,
         'Dotdigitalgroup_EmailGraphQl' => 1,
         'Dotdigitalgroup_Sms' => 1,
+        'Dtn_Campaign' => 1,
         'Dtn_Rules' => 0,
         'Firebear_ImportExport' => 1,
         'Firebear_ImportExportMsi' => 1,
