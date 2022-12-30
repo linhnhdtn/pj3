@@ -1,0 +1,28 @@
+{{template config_path="design/email/header_template"}}
+<!--@subject {{trans "Notification of missing products"}}  @-->
+<div>
+    Dear customer,
+    <br>
+    Thank you for your order. Order No {{var increment_id}}
+    <br>
+    Unfortunetly we can not offer the following articles at the moment and do not have a date from our supplier when we
+    can deliver.
+    <br>
+    {{layout handle="list_product_items" skus=$skus area="frontend"}}
+    <br>
+    <p>We can offer you the following options:</p>
+    1 . To send your order without the missing article
+    <br>
+    2 . Find a suitable replacement
+    <br>
+    Please let us know your preferred action by replying to this email within 3 days. Otherwise we will ship your order
+    without the missing item.
+    <br>
+    Sorry for the inconvenience.
+    <br>
+    Best regards,
+    <br>
+    Gpris customer support
+    <br>
+</div>
+{{template config_path="design/email/footer_template"}}

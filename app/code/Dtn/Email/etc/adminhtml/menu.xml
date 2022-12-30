@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dtn_Email::email"
+             title="Email"
+             module="Dtn_Email"
+             sortOrder="100"
+             resource="Dtn_Email::email"
+             parent="Magento_Backend::marketing"/>
+        <add id="Dtn_Email::rule"
+             title="Notify Email"
+             module="Dtn_Email"
+             sortOrder="10"
+             action="dtn_email/email"
+             resource="Dtn_Campaign::rule"
+             parent="Dtn_Email::email"/>
+        <add id="Dtn_Email::history"
+             title="History"
+             module="Dtn_Email"
+             sortOrder="10"
+             action="dtn_email/email/history"
+             resource="Dtn_Campaign::history"
+             parent="Dtn_Email::email"/>
+    </menu>
+</config>

@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var \Dtn\Email\Block\Adminhtml\Email $block
+ *
+ */
+$products = $block->getItems();
+?>
+<?php if(is_array($products)): ?>
+
+    <table id="products" style="border: 1px solid #bcbcbc;width:100%">
+        <tr>
+            <th style="padding: 10px;">Product Name</th>
+            <th style="padding: 10px;">SKU</th>
+            <th style="padding: 10px;">Qty</th>
+        </tr>
+
+        <?php foreach($products as $product) :?>
+            <tr>
+                <td><?php echo $product['name'];?></td>
+                <td><?php echo $product['sku'];?></td>
+                <td><?php echo floatval($product['qty']);?></td>
+            </tr>
+        <?php endforeach;?>
+
+    </table>
+
+<?php endif;?>

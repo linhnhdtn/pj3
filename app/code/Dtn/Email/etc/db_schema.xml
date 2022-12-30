@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="email_notify" resource="default" engine="innodb" comment="EMAIL NOTIFY">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Id"/>
+        <column xsi:type="varchar" name="note" nullable="true" comment="note"/>
+        <column xsi:type="varchar" name="status" nullable="false" comment="Status"/>
+        <column xsi:type="int" name="enable" nullable="false" comment="Enable"/>
+        <column xsi:type="timestamp" name="start_date" nullable="false" on_update="false" comment="Start Date"
+                default="CURRENT_TIMESTAMP"/>
+        <column xsi:type="timestamp" name="end_date" nullable="false" on_update="false" comment="End Date"
+                default="CURRENT_TIMESTAMP"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" comment="Created At"
+                default="CURRENT_TIMESTAMP"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" on_update="false" comment="Updated At"
+                default="CURRENT_TIMESTAMP"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="history_send_email" resource="default" engine="innodb" comment="history detail">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Id"/>
+        <column xsi:type="varchar" name="email" nullable="true" comment="Email Customer"/>
+        <column xsi:type="varchar" name="increment_id" nullable="true" comment="Order IncrementId"/>
+        <column xsi:type="int" name="email_notify_id" padding="11" unsigned="true" nullable="true"
+                comment="ID Email Notify "/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" comment="Created At"
+                default="CURRENT_TIMESTAMP"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" on_update="false" comment="Updated At"
+                default="CURRENT_TIMESTAMP"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="HISTORY_SEND_EMAIL_ID_EMAIL_NOTIFY_ID"
+                    table="history_send_email"
+                    column="email_notify_id"
+                    referenceTable="email_notify"
+                    referenceColumn="id"
+        />
+    </table>
+
+    <table name="product_miss" resource="default" engine="innodb" comment="email_notify">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Id"/>
+        <column xsi:type="int" name="product_id" padding="11" unsigned="true" nullable="true" comment="Product ID"/>
+        <column xsi:type="int" name="product_sku" padding="11" unsigned="false" nullable="true" comment="Product SKU"/>
+        <column xsi:type="varchar" name="product_name" nullable="true" comment="Product Name"/>
+        <column xsi:type="int" name="email_notify_id" padding="11" unsigned="true" nullable="false"
+                comment="Email Notify ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FK_PRODUCT"
+                    table="product_miss"
+                    column="email_notify_id"
+                    referenceTable="email_notify"
+                    referenceColumn="id"
+        />
+    </table>
+</schema>
