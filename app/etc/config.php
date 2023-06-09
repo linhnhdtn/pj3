@@ -342,6 +342,7 @@ return [
         'Klarna_KpGraphQl' => 1,
         'Lillik_PriceDecimal' => 1,
         'Linh_Theme' => 1,
+        'Magebees_MPM' => 1,
         'Mageplaza_Core' => 1,
         'Mageplaza_GeoIP' => 1,
         'Mageplaza_Osc' => 1,
