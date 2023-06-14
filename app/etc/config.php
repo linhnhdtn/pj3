@@ -342,7 +342,7 @@ return [
         'Klarna_KpGraphQl' => 1,
         'Lillik_PriceDecimal' => 1,
         'Linh_Theme' => 1,
-        'Magebees_MPM' => 1,
+        'Magebees_MPM' => 0,
         'Mageplaza_Core' => 1,
         'Mageplaza_GeoIP' => 1,
         'Mageplaza_Osc' => 1,
@@ -361,6 +361,7 @@ return [
         'Vertex_RequestLoggingApi' => 1,
         'Vertex_RequestLogging' => 1,
         'Vertex_AddressValidation' => 1,
-        'Yotpo_Yotpo' => 1
+        'Yotpo_Yotpo' => 1,
+        'Zestardtech_CartPopup' => 1
     ]
 ];

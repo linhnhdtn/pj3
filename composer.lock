@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0539d240dacd1694fa62967ecf4ada62",
+    "content-hash": "cf80ab44148901151208f16c0499ebdc",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -23609,6 +23609,28 @@
                 "AFL-3.0"
             ],
             "description": "Bundling metapackage for yotpo/magento2-module-yotpo-reviews: Yotpo Reviews extension for Magento2"
+        },
+        {
+            "name": "zestardtech/module-cartpopup",
+            "version": "1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/zestardtech/module-cartpopup/zestardtech-module-cartpopup-1.0.0.0.zip",
+                "shasum": "8f8bb64963737f9c2bbc771568f42a6e8f5b3b39"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Zestardtech\\CartPopup\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Cart Popup Magento 2 Extension By Zestardtech"
         }
     ],
     "packages-dev": [
