@@ -47,7 +47,6 @@
                                 <div class="product-img-block">
                                     <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product-item-photo">
                                         <?php echo $block->getImage($_item, $image)->toHtml(); ?>
-                                        <div class="pro-overlay"></div>
                                     </a>
 
                                     <?php if ($showWishlist || $showCompare || $showCart): ?>
@@ -55,23 +54,40 @@
                                             <?php if ($showCart): ?>
                                                 <div class="actions-primary">
                                                     <?php if ($_item->isSaleable()): ?>
-                                                        <?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)): ?>
-                                                            <button class="action tocart primary"
-                                                                    data-mage-init='{"redirectUrl":{"url":"<?php /* @escapeNotVerified */ echo $block->getAddToCartUrl($_item) ?>"}}'
-                                                                    type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+                                                        <?php $postParams = $block->getAddToCartPostParams($_item); ?>
+                                                        <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+                                                            <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+                                                            <?php echo $block->getBlockHtml('formkey') ?>
+                                                            <div class="">
+                                                                <div class="control">
+                                                                    <div>
+                                                                        <button type="button"
+                                                                                data-role="change_cart_qty"
+                                                                                class="qty-dec qty-button qtyminus"
+                                                                        > - </button>
+                                                                    </div>
+                                                                    <input type="number"
+                                                                           class="input-text qty"
+                                                                           name="qty"
+                                                                           value="1"
+                                                                           title="<?php echo __('Qty') ?>"
+                                                                           data-validate=""
+                                                                           data-sku="<?= $_item->getSku() ?>"
+                                                                           data-id="<?= $_item->getId() ?>"/>
+
+                                                                    <div class="qty-ctl">
+                                                                        <button type="button"
+                                                                                data-role="change_cart_qty"
+                                                                                class="qty-inc qty-button qtyplus"
+                                                                        > + </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                                                    class="add-to-cart action primary"
                                                                 <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
                                                             </button>
-                                                        <?php else: ?>
-                                                            <?php
-                                                            $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
-                                                            $postData = $postDataHelper->getPostData($block->getAddToCartUrl($_item), ['product' => $_item->getEntityId()])
-                                                            ?>
-                                                            <button class="action tocart primary"
-                                                                    data-post='<?php /* @escapeNotVerified */ echo $postData; ?>'
-                                                                    type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
-                                                                <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
-                                                            </button>
-                                                        <?php endif; ?>
+                                                        </form>
                                                     <?php else: ?>
                                                         <?php if ($_item->getIsSalable()): ?>
                                                             <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
@@ -130,3 +146,18 @@
         </div>
     </div>
 <?php endif; ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_CatalogWidget/js/cart/add_cart_homepage":{}
+        }
+    }
+</script>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_CatalogWidget/js/cart/change_qty":{}
+        }
+    }
+</script>

@@ -210,7 +210,6 @@ if ($showproducts) {
                                         <div class="product-img-block">
                                             <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
                                                 <?php echo $block->getImage($_item, $image)->toHtml(); ?>
-                                                <div class="pro-overlay"></div>
                                             </a>
 
                                             <?php if ($showWishlist || $showCompare || $showCart): ?>
