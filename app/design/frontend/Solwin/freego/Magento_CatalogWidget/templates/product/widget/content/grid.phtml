@@ -73,7 +73,9 @@
                                                                            title="<?php echo __('Qty') ?>"
                                                                            data-validate=""
                                                                            data-sku="<?= $_item->getSku() ?>"
-                                                                           data-id="<?= $_item->getId() ?>"/>
+                                                                           data-id="<?= $_item->getId() ?>"
+                                                                           data-name="<?= $_item->getName() ?>"
+                                                                    />
 
                                                                     <div class="qty-ctl">
                                                                         <button type="button"
@@ -84,7 +86,8 @@
                                                                 </div>
                                                             </div>
                                                             <button title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
-                                                                    class="add-to-cart action primary"
+                                                                    class="add-to-cart action tocart primary"
+                                                                    type="button"
                                                                 <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
                                                             </button>
                                                         </form>
@@ -147,13 +150,13 @@
     </div>
 <?php endif; ?>
 
-<script type="text/x-magento-init">
-    {
-        "*": {
-            "Magento_CatalogWidget/js/cart/add_cart_homepage":{}
-        }
-    }
-</script>
+<!--<script type="text/x-magento-init">-->
+<!--    {-->
+<!--        "*": {-->
+<!--            "Magento_CatalogWidget/js/cart/add_cart_homepage":{}-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 <script type="text/x-magento-init">
     {
         "*": {
@@ -161,3 +164,4 @@
         }
     }
 </script>
+
