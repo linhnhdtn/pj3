@@ -44,13 +44,9 @@ require([
             dataType: "json",
             success: function (res) {
                 $(this).css("opacity", "1");
-                if($('body').hasClass('catalog-product-view')){
-                    let productName = '<span class="prod-name">'+$('.page-title span').text()+'</span>';
-                } else {
-                    let productName = '<span class="prod-name" style="color: red">'+formData.name+'</span>';
-                }
-                let successMessage = $.mage.__('You added %1 to your shopping cart.').replace('%1', productName);
-                let popup = $('<div class="add-to-cart-modal-popup"/>').html('<span>'+successMessage+'</span>').modal({
+                var productName = '<span class="prod-name" style="color: red">'+formData.name+'</span>';
+                var successMessage = $.mage.__('You added %1 to your shopping cart.').replace('%1', productName);
+                var popup = $('<div class="add-to-cart-modal-popup"/>').html('<span>'+successMessage+'</span>').modal({
                     modalClass: 'add-to-cart-popup cart-left-popup',
                     buttons: [
                         {
@@ -77,8 +73,8 @@ require([
                 });
                 popup.modal('openModal');
 
-                let counter = 3;
-                let interval = setInterval(function(){
+                var counter = 3;
+                var interval = setInterval(function(){
                     counter--;
                     if (counter <= 0) {
                         clearInterval(interval);
