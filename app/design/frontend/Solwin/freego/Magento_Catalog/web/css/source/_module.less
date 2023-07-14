@@ -326,9 +326,34 @@
         }
     }
 
+    .product-social-links {
+        display: none;
+    }
+
     .box-tocart {
         &:extend(.abs-box-tocart all);
         .field.qty {
+            display: flex;
+
+            .qty-btn {
+                width: 35px;
+                height: 35px;
+                padding: 0;
+                background: #F2703E;
+                color: #fff;
+                font-weight: 600;
+                border: 1px solid #F2703E;
+                border-radius: 2px;
+            }
+
+            .input-text.qty {
+                text-align: center;
+                height: 35px;
+                width: 35px;
+                border-radius: 2px;
+                padding: 0;
+                margin: 0 3px;
+            }
         }
         .input-text.qty {
             &:extend(.abs-input-qty all);
