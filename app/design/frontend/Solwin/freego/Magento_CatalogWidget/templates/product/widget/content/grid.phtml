@@ -48,80 +48,6 @@
                                     <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product-item-photo">
                                         <?php echo $block->getImage($_item, $image)->toHtml(); ?>
                                     </a>
-
-                                    <?php if ($showWishlist || $showCompare || $showCart): ?>
-                                        <div class="product-item-actions">
-                                            <?php if ($showCart): ?>
-                                                <div class="actions-primary">
-                                                    <?php if ($_item->isSaleable()): ?>
-                                                        <?php $postParams = $block->getAddToCartPostParams($_item); ?>
-                                                        <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
-                                                            <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
-                                                            <?php echo $block->getBlockHtml('formkey') ?>
-                                                            <div class="">
-                                                                <div class="control">
-                                                                    <div>
-                                                                        <button type="button"
-                                                                                data-role="change_cart_qty"
-                                                                                class="qty-dec qty-button qtyminus"
-                                                                        > - </button>
-                                                                    </div>
-                                                                    <input type="number"
-                                                                           class="input-text qty"
-                                                                           name="qty"
-                                                                           value="1"
-                                                                           title="<?php echo __('Qty') ?>"
-                                                                           data-validate=""
-                                                                           data-sku="<?= $_item->getSku() ?>"
-                                                                           data-id="<?= $_item->getId() ?>"
-                                                                           data-name="<?= $_item->getName() ?>"
-                                                                    />
-
-                                                                    <div class="qty-ctl">
-                                                                        <button type="button"
-                                                                                data-role="change_cart_qty"
-                                                                                class="qty-inc qty-button qtyplus"
-                                                                        > + </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <button title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
-                                                                    class="add-to-cart action tocart primary"
-                                                                    type="button"
-                                                                <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
-                                                            </button>
-                                                        </form>
-                                                    <?php else: ?>
-                                                        <?php if ($_item->getIsSalable()): ?>
-                                                            <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
-                                                        <?php else: ?>
-                                                            <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
-                                                        <?php endif; ?>
-                                                    <?php endif; ?>
-                                                </div>
-                                            <?php endif; ?>
-                                            <?php if ($showWishlist || $showCompare): ?>
-                                                <div class="actions-secondary" data-role="add-to-links">
-                                                    <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow() && $showWishlist): ?>
-                                                        <a href="#"
-                                                           data-post='<?php /* @escapeNotVerified */ echo $block->getAddToWishlistParams($_item); ?>'
-                                                           class="action towishlist" data-action="add-to-wishlist"
-                                                           title="<?php /* @escapeNotVerified */ echo __('Add to Wish List') ?>">
-                                                            <span><?php /* @escapeNotVerified */ echo __('Add to Wish List') ?></span>
-                                                        </a>
-                                                    <?php endif; ?>
-                                                    <?php if ($block->getAddToCompareUrl() && $showCompare): ?>
-                                                        <?php $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare'); ?>
-                                                        <a href="#" class="action tocompare"
-                                                           data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_item); ?>'
-                                                           title="<?php /* @escapeNotVerified */ echo __('Add to Compare') ?>">
-                                                            <span><?php /* @escapeNotVerified */ echo __('Add to Compare') ?></span>
-                                                        </a>
-                                                    <?php endif; ?>
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endif; ?>
                                 </div>
                                 <div class="product-item-details">
                                     <strong class="product-item-name">
@@ -134,11 +60,83 @@
                                     <?php
                                     echo $block->getProductPriceHtml($_item, $type);
                                     ?>
-
                                     <?php if ($templateType): ?>
                                         <?php echo $block->getReviewsSummaryHtml($_item, $templateType) ?>
                                     <?php endif; ?>
                                 </div>
+                                <?php if ($showWishlist || $showCompare || $showCart): ?>
+                                    <div class="product-item-actions">
+                                        <?php if ($showCart): ?>
+                                            <div class="actions-primary">
+                                                <?php if ($_item->isSaleable()): ?>
+                                                    <?php $postParams = $block->getAddToCartPostParams($_item); ?>
+                                                    <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+                                                        <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+                                                        <?php echo $block->getBlockHtml('formkey') ?>
+                                                        <div class="">
+                                                            <div class="control">
+                                                                <div>
+                                                                    <button type="button"
+                                                                            data-role="change_cart_qty"
+                                                                            class="qty-dec qty-button qtyminus"
+                                                                    > - </button>
+                                                                </div>
+                                                                <input type="number"
+                                                                       class="input-text qty"
+                                                                       name="qty"
+                                                                       value="1"
+                                                                       title="<?php echo __('Qty') ?>"
+                                                                       data-validate=""
+                                                                       data-sku="<?= $_item->getSku() ?>"
+                                                                       data-id="<?= $_item->getId() ?>"
+                                                                       data-name="<?= $_item->getName() ?>"
+                                                                />
+
+                                                                <div class="qty-ctl">
+                                                                    <button type="button"
+                                                                            data-role="change_cart_qty"
+                                                                            class="qty-inc qty-button qtyplus"
+                                                                    > + </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                                                class="add-to-cart action tocart primary"
+                                                                type="button"
+                                                        <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+                                                        </button>
+                                                    </form>
+                                                <?php else: ?>
+                                                    <?php if ($_item->getIsSalable()): ?>
+                                                        <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+                                                    <?php else: ?>
+                                                        <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        <?php if ($showWishlist || $showCompare): ?>
+                                            <div class="actions-secondary" data-role="add-to-links">
+                                                <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow() && $showWishlist): ?>
+                                                    <a href="#"
+                                                       data-post='<?php /* @escapeNotVerified */ echo $block->getAddToWishlistParams($_item); ?>'
+                                                       class="action towishlist" data-action="add-to-wishlist"
+                                                       title="<?php /* @escapeNotVerified */ echo __('Add to Wish List') ?>">
+                                                        <span><?php /* @escapeNotVerified */ echo __('Add to Wish List') ?></span>
+                                                    </a>
+                                                <?php endif; ?>
+                                                <?php if ($block->getAddToCompareUrl() && $showCompare): ?>
+                                                    <?php $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare'); ?>
+                                                    <a href="#" class="action tocompare"
+                                                       data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_item); ?>'
+                                                       title="<?php /* @escapeNotVerified */ echo __('Add to Compare') ?>">
+                                                        <span><?php /* @escapeNotVerified */ echo __('Add to Compare') ?></span>
+                                                    </a>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <?php echo($iterator == count($items) + 1) ? '</li>' : '' ?>
                         <?php endforeach ?>

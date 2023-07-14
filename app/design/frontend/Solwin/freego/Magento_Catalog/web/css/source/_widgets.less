@@ -26,6 +26,15 @@
     .block.widget {
         .product-item-info {
             width: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+
+            .product-item-photo {
+                text-align: center;
+            }
         }
         .pager {
             padding: 0;
@@ -44,15 +53,19 @@
             }
         }
     }
-
 }
 
 .product {
     &-items {
         &:extend(.abs-reset-list all);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
     }
     &-item {
         vertical-align: top;
+        margin: 0!important;
         .products-grid & {
             width: 48.5%;
             margin-left: calc(~"(100% - 2 * 48.5%) / 1");
@@ -72,10 +85,11 @@
                 background: transparent;
                 display: block;
                 margin: 0;
-                padding: 17px 10px;
+                padding: 0;
                 box-sizing:border-box;
                 position: relative;
-                width: 100%;
+                width: fit-content;
+                margin: 0 auto;
                 z-index: 9;
                 transition:all 0.3s ease 0s;
                 -webkit-transition:all 0.3s ease 0s;
