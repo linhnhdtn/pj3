@@ -341,6 +341,7 @@ return [
         'Klarna_Onsitemessaging' => 1,
         'Klarna_KpGraphQl' => 1,
         'Lillik_PriceDecimal' => 1,
+        'Linh_Sales' => 1,
         'Linh_Theme' => 1,
         'Lof_All' => 0,
         'Lof_ChatSystem' => 0,
