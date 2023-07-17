@@ -3,4 +3,7 @@
     <event name="sales_order_save_after">
         <observer name="auto_create_invoice" instance="Linh\Sales\Observer\Invoice"/>
     </event>
+    <event name="sales_order_shipment_save_after">
+        <observer name="gen_ship_code" instance="Linh\Sales\Observer\ShipCode"/>
+    </event>
 </config>
