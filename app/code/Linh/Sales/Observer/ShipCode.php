@@ -23,18 +23,10 @@ class ShipCode implements ObserverInterface
         $shipment = $observer->getData("shipment");
         $shipCode = $shipment->getShipCode();
         if (!$shipCode) {
-
             // save ship_code
             $shipCode = $this->generateRandomCode();
             $shipment->setShipCode($shipCode);
             $shipment->save();
-
-            //$shipmentId = $shipment->getId();
-//            $this->salesGrid->getConnection()->update(
-//                "sales_shipment_grid",
-//                ['ship_code' => $shipCode],
-//                ['entity_id = ?' => $shipmentId]
-//            );
         }
     }
 
