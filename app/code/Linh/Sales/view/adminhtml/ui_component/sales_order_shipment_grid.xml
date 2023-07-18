@@ -1,0 +1,12 @@
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<!--    <columns name="sales_order_shipment_columns">-->
+<!--        <column name="ship_code" class="Linh\Sales\Ui\Component\Listing\Column\ShipCode">-->
+<!--            <settings>-->
+<!--                <filter>textRange</filter>-->
+<!--                <label translate="true">Ship Code</label>-->
+<!--                <visible>false</visible>-->
+<!--            </settings>-->
+<!--        </column>-->
+<!--    </columns>-->
+</listing>

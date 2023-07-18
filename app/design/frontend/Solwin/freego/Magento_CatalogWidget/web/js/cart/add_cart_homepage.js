@@ -18,19 +18,6 @@ require(['jquery', 'Magento_Customer/js/customer-data', 'mage/cookies'], functio
                 success: function (res) {
                     jQuery('.add-to-cart').css("opacity", "1");
                     reloadCart();
-                    // console.log(res);
-                    // let $popSuccess = $('.popup-update-cart');
-                    // if (res.is_succeed === true) {
-                    //     jQuery('.sidebar-minicart').addClass('opened');
-                    //     setTimeout(function () {
-                    //         $popSuccess.addClass('opened').css('opacity', 1);
-                    //     }, 1500);
-                    //     setTimeout(function () {
-                    //         $popSuccess.removeClass('opened').css('opacity', 0);
-                    //     }, 3000);
-                    // } else {
-                    //     window.location.href = res.backUrl;
-                    // }
                 }
             });
         });
