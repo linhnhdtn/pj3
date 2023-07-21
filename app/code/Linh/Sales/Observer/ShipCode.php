@@ -5,16 +5,26 @@ namespace Linh\Sales\Observer;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Sales\Model\ResourceModel\Grid;
+use Magento\Framework\App\ResourceConnection;
 
 class ShipCode implements ObserverInterface
 {
+    /**
+     * @var ResourceConnection
+     */
+    protected $connection;
+    /**
+     * @var Grid
+     */
     protected $salesGrid;
 
     public function __construct
     (
-        Grid $salesGrid
+        Grid $salesGrid,
+        ResourceConnection $connection
     )
     {
+        $this->connection = $connection;
         $this->salesGrid = $salesGrid;
     }
 
@@ -27,6 +37,8 @@ class ShipCode implements ObserverInterface
             $shipCode = $this->generateRandomCode();
             $shipment->setShipCode($shipCode);
             $shipment->save();
+            $sql = "UPDATE sales_shipment_grid SET ship_code = ('" . $shipCode . "') WHERE `entity_id` =" . $shipment->getId();
+            $this->connection->getConnection()->query($sql);
         }
     }
 
