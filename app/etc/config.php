@@ -349,6 +349,7 @@ return [
         'Magenest_Core' => 1,
         'Magenest_Messenger' => 1,
         'Mageplaza_Core' => 1,
+        'Mageplaza_DeleteOrders' => 1,
         'Mageplaza_GeoIP' => 1,
         'Mageplaza_Osc' => 1,
         'Mageplaza_Productslider' => 1,
