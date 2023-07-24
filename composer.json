@@ -29,6 +29,7 @@
         "mageplaza/magento-2-one-step-checkout-extension": "^4.0",
         "mageplaza/magento-2-product-slider": "^4.0",
         "mageplaza/module-core": "^1.4",
+        "mageplaza/module-smtp": "^4.7",
         "salsify/json-streaming-parser": "^8.2",
         "stripe/stripe-payments": "^3.3",
         "zestardtech/module-cartpopup": "^1.0"
