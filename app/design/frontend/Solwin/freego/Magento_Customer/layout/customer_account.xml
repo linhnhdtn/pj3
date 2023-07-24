@@ -39,5 +39,10 @@
             </block>
         </referenceContainer>
         <move element="page.main.title" destination="content.top" before="-"/>
+        <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true" />
+        <referenceBlock name="stripe-payments-subscriptions" remove="true" />
+        <referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true" />
+        <referenceBlock name="customer-account-navigation-product-reviews-link" remove="true" />
+        <referenceBlock name="sidebar.main.account_nav" remove="true" />
     </body>
 </page>
