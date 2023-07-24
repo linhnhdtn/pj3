@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf80ab44148901151208f16c0499ebdc",
+    "content-hash": "eeafb12611203135475744f7974a5dc4",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -17916,6 +17916,71 @@
                 "source": "https://github.com/mageplaza/magento-2-geoip-library/tree/v4.0.1"
             },
             "time": "2021-07-09T09:58:48+00:00"
+        },
+        {
+            "name": "mageplaza/module-smtp",
+            "version": "4.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-smtp.git",
+                "reference": "e1936be8c1a8196ac4b01905141b3c97ab003326"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-smtp/zipball/e1936be8c1a8196ac4b01905141b3c97ab003326",
+                "reference": "e1936be8c1a8196ac4b01905141b3c97ab003326",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.4.11"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Smtp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "SMTP Extension for Magento 2 helps the owner of store simply install SMTP (Simple Mail Transfer Protocol) server which transmits the messages into codes or numbers",
+            "keywords": [
+                "Facebook ADS",
+                "Marketing Automation",
+                "Messenger",
+                "email",
+                "email marketing",
+                "email settings",
+                "facebook",
+                "gmail smtp",
+                "google ads",
+                "magento 2",
+                "magento 2 smtp",
+                "magento smtp",
+                "mageplaza",
+                "sms",
+                "sms marketing",
+                "smtp",
+                "web push notification",
+                "whatsapp"
+            ],
+            "support": {
+                "issues": "https://github.com/mageplaza/magento-2-smtp/issues",
+                "source": "https://github.com/mageplaza/magento-2-smtp/tree/v4.7.1"
+            },
+            "time": "2022-04-19T04:12:53+00:00"
         },
         {
             "name": "maxmind-db/reader",
