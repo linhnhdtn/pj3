@@ -30,7 +30,6 @@ require([
     });
     $('.add-to-cart').on('click', function (form) {
         form.preventDefault();
-        $(this).css("opacity", "0.7");
         let formData = {
             qty: jQuery(this).parents('form').find('input[name="qty"]').val(),
             product: jQuery(this).parents('form').find('input[name="qty"]').data("id"),
@@ -43,7 +42,6 @@ require([
             data: formData,
             dataType: "json",
             success: function (res) {
-                $(this).css("opacity", "1");
                 var productName = '<span class="prod-name" style="color: red">'+formData.name+'</span>';
                 var successMessage = $.mage.__('You added %1 to your shopping cart.').replace('%1', productName);
                 var popup = $('<div class="add-to-cart-modal-popup"/>').html('<span>'+successMessage+'</span>').modal({
