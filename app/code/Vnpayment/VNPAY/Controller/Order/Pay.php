@@ -44,14 +44,14 @@ class Pay extends \Magento\Framework\App\Action\Action {
         $hashData = "";
         foreach ($inputData as $key => $value) {
             if ($i == 1) {
-                $hashData = $hashData . '&' . $key . "=" . $value;
+                $hashData = $hashData . '&' . urlencode($key) . "=" . urlencode($value);
             } else {
-                $hashData = $hashData . $key . "=" . $value;
+                $hashData = $hashData . urlencode($key) . "=" . urlencode($value);
                 $i = 1;
             }
         }
 
-        $secureHash = hash('sha256', $SECURE_SECRET . $hashData);
+        $secureHash = hash_hmac('sha512', $hashData, $SECURE_SECRET);
         if ($secureHash == $vnp_SecureHash) {
             if ($vnp_ResponseCode == '00') {
                 $this->messageManager->addSuccess('Thanh toán thành công qua VNPAY');

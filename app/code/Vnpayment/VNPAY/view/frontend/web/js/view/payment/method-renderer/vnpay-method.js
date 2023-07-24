@@ -149,8 +149,7 @@ define(
                                 self.isPlaceOrderActionAllowed(true);
                             }).done(function (orderID) {
                                 $.ajax({
-                                    //url:'/paymentvnpay/order/info?order_id='+orderID comment = NgocPD tro ve domain
-				url: window.location.pathname.slice(window.location.pathname.lastIndexOf,-9) + 'paymentvnpay/order/info?order_id='+orderID				
+                                    url:'/paymentvnpay/order/info?order_id='+orderID
                                 }).done(function (url) {
                                     window.location.replace(url);
                                 }).fail(function (err) {

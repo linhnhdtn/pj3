@@ -20,7 +20,7 @@ class Info extends \Magento\Framework\App\Action\Action {
     /** @var  \Magento\Store\Model\StoreManagerInterface */
     protected $storeManager;
 
-    /** @var  \Magento\Checkout\Model\Session        Magento = Magento230sp */ 
+    /** @var  \Magento\Checkout\Model\Session */
     protected $checkoutSession;
 
     public function __construct(
@@ -47,9 +47,9 @@ class Info extends \Magento\Framework\App\Action\Action {
             $returnUrl = rtrim($returnUrl, "/");
             $returnUrl .= "/paymentvnpay/order/pay";
             $inputData = array(
-                "vnp_Version" => "2.0.0",
+                "vnp_Version" => "2.1.0",
                 "vnp_TmnCode" => $this->scopeConfig->getValue('payment/vnpay/tmn_code'),
-                "vnp_Amount" => round($order->getTotalDue() * 100, 0),
+                "vnp_Amount" => round($order->getTotalDue() * 26243 * 100, 0),
                 "vnp_Command" => "pay",
                 "vnp_CreateDate" => date('YmdHis'),
                 "vnp_CurrCode" => "VND",
@@ -66,9 +66,9 @@ class Info extends \Magento\Framework\App\Action\Action {
             $hashdata = "";
             foreach ($inputData as $key => $value) {
                 if ($i == 1) {
-                    $hashdata .= '&' . $key . "=" . $value;
+                    $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
                 } else {
-                    $hashdata .= $key . "=" . $value;
+                    $hashdata .= urlencode($key) . "=" . urlencode($value);
                     $i = 1;
                 }
                 $query .= urlencode($key) . "=" . urlencode($value) . '&';
@@ -77,8 +77,8 @@ class Info extends \Magento\Framework\App\Action\Action {
             $vnp_Url = $url . "?" . $query;
             $SECURE_SECRET = $this->scopeConfig->getValue('payment/vnpay/hash_code');
             if (isset($SECURE_SECRET)) {
-                $vnpSecureHash = hash('sha256', $SECURE_SECRET . $hashdata);
-                $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
+                $vnpSecureHash = hash_hmac('sha512', $hashdata, $SECURE_SECRET);
+                $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
             }
         }
         $this->jsonFac->setData($vnp_Url);

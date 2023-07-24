@@ -44,14 +44,14 @@ class Ipn extends \Magento\Framework\App\Action\Action {
         $hashData = "";
         foreach ($inputData as $key => $value) {
             if ($i == 1) {
-                $hashData = $hashData . '&' . $key . "=" . $value;
+                $hashData = $hashData . '&' . urlencode($key). "=" . urlencode($value);
             } else {
-                $hashData = $hashData . $key . "=" . $value;
+                $hashData = $hashData . urlencode($key) . "=" . urlencode($value);
                 $i = 1;
             }
         }
         $returnData = array();
-        $secureHash =hash('sha256', $SECURE_SECRET . $hashData);
+        $secureHash = hash_hmac('sha512', $hashData, $SECURE_SECRET);
         try {
             if ($secureHash == $vnp_SecureHash) {
                 $vnp_TxnRef = $this->getRequest()->getParam('vnp_TxnRef', '000000000');
@@ -60,24 +60,18 @@ class Ipn extends \Magento\Framework\App\Action\Action {
                     if ($order->getStatus() != NULL && $order->getStatus() == 'pending') {
 
                         if ($vnp_ResponseCode == '00') {
-                            if ($this->checkoutSession->getLastOrderId() == $order->getId()) {
                                 $amount = $this->getRequest()->getParam('vnp_Amount', '0');
                                 $order->setTotalPaid(floatval($amount) / 100);
                                 $orderState = $order::STATE_PROCESSING;
                                 $order->setState($orderState)->setStatus($order::STATE_PROCESSING);
                                 $order->save();
-                                //$isSuccess = true;
-                            }
                         } else {
-                            if ($this->checkoutSession->getLastOrderId() == $order->getId()) {
                                 $amount = $this->getRequest()->getParam('vnp_Amount', '0');
                                 $order->setTotalPaid(floatval($amount) / 100);
                                 $order->addStatusHistoryComment('Giao dịch thất bại');
                                 $orderState = $order::STATE_CLOSED;
                                 $order->setState($orderState)->setStatus($order::STATE_CLOSED);
                                 $order->save();
-                                //$isSuccess = false;
-                            }
                         }
                         $returnData['RspCode'] = '00';
                         $returnData['Message'] = 'Confirm Success';
