@@ -25,7 +25,7 @@ return [
         'Magento_Search' => 1,
         'Magento_Backup' => 1,
         'Magento_Customer' => 1,
-        'Magento_AdminNotification' => 1,
+        'Magento_AdminNotification' => 0,
         'Magento_BundleImportExport' => 1,
         'Magento_CacheInvalidate' => 1,
         'Magento_Indexer' => 1,
