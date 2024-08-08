@@ -58,6 +58,8 @@ define([
             data.first_description = attributes.first_description;
             data.second_label = attributes.second_label;
             data.second_description = attributes.second_description;
+            data.url_first_video = attributes.url_first_video;
+            data.url_second_video = attributes.url_second_video;
             if (attributes.first_video && attributes.first_video != "") {
                 data.first_video = JSON.parse(this.decodeWysiwygCharacters(attributes.first_video));
             }
@@ -87,6 +89,8 @@ define([
                 first_description: data.first_description,
                 second_label: data.second_label,
                 second_description: data.second_description,
+                url_second_video: data.url_second_video,
+                url_first_video: data.url_first_video,
                 first_video: this.encodeWysiwygCharacters(JSON.stringify(data.first_video)),
                 second_video: this.encodeWysiwygCharacters(JSON.stringify(data.second_video))
             };

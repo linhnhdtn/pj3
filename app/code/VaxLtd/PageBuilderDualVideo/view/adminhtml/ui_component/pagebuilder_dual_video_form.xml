@@ -108,7 +108,14 @@
                 </fileUploader>
             </formElements>
         </field>
-        <field name="second_video" formElement="fileUploader" sortOrder="13"
+        <field name="url_first_video" sortOrder="13" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Url First Video</label>
+                <dataScope>url_first_video</dataScope>
+            </settings>
+        </field>
+        <field name="second_video" formElement="fileUploader" sortOrder="14"
                template="VaxLtd_PageBuilderCore/form/element/uploader/video">
             <settings>
                 <label translate="true">Second Video</label>
@@ -127,28 +134,35 @@
                 </fileUploader>
             </formElements>
         </field>
-        <field name="first_label" sortOrder="14" formElement="input">
+        <field name="url_second_video" sortOrder="15" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Url Second Video</label>
+                <dataScope>url_second_video</dataScope>
+            </settings>
+        </field>
+        <field name="first_label" sortOrder="16" formElement="input">
             <settings>
                 <dataType>text</dataType>
                 <label translate="true">First Label</label>
                 <dataScope>first_label</dataScope>
             </settings>
         </field>
-        <field name="first_description" sortOrder="15" formElement="textarea">
+        <field name="first_description" sortOrder="17" formElement="textarea">
             <settings>
                 <dataType>text</dataType>
                 <label translate="true">First Description</label>
                 <dataScope>first_description</dataScope>
             </settings>
         </field>
-        <field name="second_label" sortOrder="16" formElement="input">
+        <field name="second_label" sortOrder="18" formElement="input">
             <settings>
                 <dataType>text</dataType>
                 <label translate="true">Second Label</label>
                 <dataScope>second_label</dataScope>
             </settings>
         </field>
-        <field name="second_description" sortOrder="17" formElement="textarea">
+        <field name="second_description" sortOrder="19" formElement="textarea">
             <settings>
                 <dataType>text</dataType>
                 <label translate="true">Second Description</label>
