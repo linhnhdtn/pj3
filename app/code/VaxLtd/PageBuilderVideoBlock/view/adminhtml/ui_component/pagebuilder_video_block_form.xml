@@ -4,7 +4,7 @@
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">pagebuilder_video_block_form.pagebuilder_video_block_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Page Banner</item>
+        <item name="label" xsi:type="string" translate="true">Video Block</item>
     </argument>
     <settings>
         <namespace>pagebuilder_video_block_form</namespace>
@@ -150,6 +150,15 @@
                         <item name="componentType" xsi:type="string">container</item>
                     </item>
                 </argument>
+                <field name="background" component="Magento_Ui/js/form/element/text"
+                       template="Magento_PageBuilder/dynamic-rows/element/text" formElement="input">
+                    <settings>
+                        <label translate="true">Background</label>
+                        <visible>true</visible>
+                        <dataScope>background.0.url</dataScope>
+                        <elementTmpl>VaxLtd_PageBuilderCore/dynamic-rows/cells/preview-image</elementTmpl>
+                    </settings>
+                </field>
                 <field name="youtube_url" component="Magento_Ui/js/form/element/text" template="Magento_PageBuilder/dynamic-rows/element/text" formElement="input">
                     <settings>
                         <dataType>text</dataType>
@@ -162,13 +171,13 @@
                 <button name="actions" component="Magento_PageBuilder/js/form/components/action-button" template="Magento_PageBuilder/form/components/dynamic-rows/actions">
                     <argument name="data" xsi:type="array">
                         <item name="config" xsi:type="array">
-                            <item name="insertFormProvider" xsi:type="string">index = page_banner_item_insert_form</item>
-                            <item name="modalProvider" xsi:type="string">index = page_banner_item_modal</item>
+                            <item name="insertFormProvider" xsi:type="string">index = video_block_item_insert_form</item>
+                            <item name="modalProvider" xsi:type="string">index = video_block_item_modal</item>
                             <item name="noClickEdit" xsi:type="boolean">true</item>
                             <item name="actions" xsi:type="array">
                                 <item name="0" xsi:type="array">
                                     <item name="targetName" xsi:type="string">${ $.name }</item>
-                                    <item name="actionName" xsi:type="string">edit</item>
+                                     <item name="actionName" xsi:type="string">edit</item>
                                     <item name="label" xsi:type="string" translate="true">Edit</item>
                                 </item>
                                 <item name="1" xsi:type="array">

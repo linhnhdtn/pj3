@@ -99,7 +99,12 @@ define([
         ;
 
         _proto.encodeWysiwygCharacters = function encodeWysiwygCharacters(content) {
+            if (!content || (Array.isArray(content) && content.length === 0) || (typeof content === 'string' && content === '')) {
+                return "";
+            }
+
             return content.replace(/"/g, "`").replace(/\\/g, "|").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
         }
         /**
          * @param {string} content

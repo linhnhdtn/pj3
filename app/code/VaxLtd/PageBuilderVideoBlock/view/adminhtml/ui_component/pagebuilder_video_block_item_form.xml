@@ -43,7 +43,7 @@
         <settings>
             <label/>
         </settings>
-        <field name="video" formElement="fileUploader" sortOrder="13"
+        <field name="video" formElement="fileUploader" sortOrder="10"
                template="VaxLtd_PageBuilderCore/form/element/uploader/video">
             <settings>
                 <label translate="true">Video</label>
@@ -60,6 +60,25 @@
                         <previewTmpl>VaxLtd_PageBuilderCore/form/element/uploader/video/preview</previewTmpl>
                     </settings>
                 </fileUploader>
+            </formElements>
+        </field>
+        <field name="background" formElement="imageUploader" sortOrder="11">
+            <settings>
+                <label translate="true">Background</label>
+                <componentType>imageUploader</componentType>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <isMultipleFiles>false</isMultipleFiles>
+                        <allowedExtensions>jpg jpeg gif png</allowedExtensions>
+                        <maxFileSize>4194304</maxFileSize>
+                        <uploaderConfig>
+                            <param xsi:type="string" name="url">pagebuilder/contenttype/image_upload</param>
+                        </uploaderConfig>
+                        <previewTmpl>Magento_PageBuilder/form/element/uploader/preview</previewTmpl>
+                    </settings>
+                </imageUploader>
             </formElements>
         </field>
         <field name="youtube_url" sortOrder="15" formElement="input">
