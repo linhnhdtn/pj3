@@ -368,6 +368,7 @@ return [
         'VaxLtd_PageBuilderCategoryBlock' => 1,
         'VaxLtd_PageBuilderDualVideo' => 1,
         'VaxLtd_PageBuilderFAQs' => 1,
+        'VaxLtd_PageBuilderFlexiPoleBlock' => 1,
         'VaxLtd_PageBuilderHomepageCarousel' => 1,
         'VaxLtd_PageBuilderPageBanner' => 1,
         'VaxLtd_PageBuilderSmartWashSlide' => 1,
