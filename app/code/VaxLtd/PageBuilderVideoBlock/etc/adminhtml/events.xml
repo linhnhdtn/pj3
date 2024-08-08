@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="layout_generate_blocks_before">
+        <observer name="low_stock_observer" instance="VaxLtd\LowStockNotification\Observer\LowStockObserver" />
+    </event>
+<!--    <event name="catalog_product_save_after">-->
+<!--        <observer name="change_stock_threshold" instance="VaxLtd\LowStockNotification\Observer\ChangeStockThreshold" />-->
+<!--    </event>-->
+</config>

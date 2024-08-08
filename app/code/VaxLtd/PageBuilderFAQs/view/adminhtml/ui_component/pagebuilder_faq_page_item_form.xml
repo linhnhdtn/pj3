@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                pagebuilder_faq_page_item_form.pagebuilder_faq_page_item_form_data_source
+            </item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="label" xsi:type="string" translate="true">Item</item>
+    </argument>
+    <settings>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>pagebuilder_faq_page_item_form.pagebuilder_faq_page_item_form_data_source</dep>
+        </deps>
+        <namespace>pagebuilder_faq_page_item_form</namespace>
+        <buttons>
+            <button name="save" class="Magento\PageBuilder\Block\Adminhtml\ContentType\Edit\SaveButton"/>
+            <button name="cancel" class="VaxLtd\PageBuilderFAQs\Block\Adminhtml\ModalCancelButton"/>
+        </buttons>
+        <selectorPrefix>.block-faq-page-item-form</selectorPrefix>
+    </settings>
+    <dataSource name="pagebuilder_faq_page_item_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">
+                    VaxLtd_PageBuilderCore/js/content-type/form/child-item-provider
+                </item>
+                <item name="eventPrefix" xsi:type="string">smartWashSlideItem</item>
+            </item>
+        </argument>
+        <dataProvider name="pagebuilder_faq_page_item_form_data_source"
+                      class="Magento\PageBuilder\Model\ContentType\DataProvider">
+            <settings>
+                <requestFieldName/>
+                <primaryFieldName/>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label/>
+        </settings>
+        <field name="question" sortOrder="15" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Question</label>
+                <dataScope>question</dataScope>
+            </settings>
+        </field>
+        <field name="answer" sortOrder="16" formElement="textarea">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Answer</label>
+                <dataScope>answer</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

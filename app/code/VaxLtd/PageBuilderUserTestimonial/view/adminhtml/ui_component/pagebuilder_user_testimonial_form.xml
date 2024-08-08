@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd" extends="pagebuilder_base_form">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">pagebuilder_user_testimonial_form.pagebuilder_user_testimonial_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">User Testimonial</item>
+    </argument>
+    <settings>
+        <namespace>pagebuilder_user_testimonial_form</namespace>
+        <deps>
+            <dep>pagebuilder_user_testimonial_form.pagebuilder_user_testimonial_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="pagebuilder_user_testimonial_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_PageBuilder/js/form/provider</item>
+            </item>
+        </argument>
+        <dataProvider name="pagebuilder_user_testimonial_form_data_source" class="Magento\PageBuilder\Model\ContentType\DataProvider">
+            <settings>
+                <requestFieldName/>
+                <primaryFieldName/>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="appearance_fieldset" sortOrder="10" component="Magento_PageBuilder/js/form/element/dependent-fieldset">
+        <settings>
+            <label translate="true">Appearance</label>
+            <additionalClasses>
+                <class name="admin__fieldset-visual-select-large">true</class>
+            </additionalClasses>
+            <collapsible>false</collapsible>
+            <opened>true</opened>
+            <imports>
+                <link name="hideFieldset">${$.name}.appearance:options</link>
+                <link name="hideLabel">${$.name}.appearance:options</link>
+            </imports>
+        </settings>
+        <field name="appearance" formElement="select" sortOrder="10" component="Magento_PageBuilder/js/form/element/dependent-visual-select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">default</item>
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="admin__field-wide">true</class>
+                    <class name="admin__field-visual-select-container">true</class>
+                </additionalClasses>
+                <dataType>text</dataType>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <elementTmpl>Magento_PageBuilder/form/element/visual-select</elementTmpl>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="AppearanceSourceUserTestimonial"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+    <fieldset name="general" sortOrder="20">
+        <settings>
+            <label/>
+        </settings>
+        <modal name="user_testimonial_item_modal">
+            <settings>
+                <options>
+                    <option name="title" xsi:type="string" translate="true">Add Item</option>
+                </options>
+            </settings>
+            <insertForm name="user_testimonial_item_form" component="VaxLtd_PageBuilderCore/js/content-type/form/child-item-insert">
+                <settings>
+                    <toolbarContainer>${ $.parentName }</toolbarContainer>
+                    <renderUrl path="mui/index/render_handle">
+                        <param name="buttons">1</param>
+                        <param name="handle">pagebuilder_user_testimonial_item_form</param>
+                    </renderUrl>
+                    <externalProvider>${ $.ns}.pagebuilder_user_testimonial_item_form_data_source</externalProvider>
+                    <ns>pagebuilder_user_testimonial_item_form</ns>
+                </settings>
+            </insertForm>
+        </modal>
+
+        <container name="add_item" sortOrder="10" template="ui/form/components/complex">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="content" xsi:type="string"/>
+                    <item name="label" xsi:type="string"/>
+                </item>
+            </argument>
+            <button name="add_item_button">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="actions" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="targetName" xsi:type="string">index=user_testimonial_item_form</item>
+                                <item name="actionName" xsi:type="string">destroyInserted</item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="targetName" xsi:type="string">index=user_testimonial_item_modal</item>
+                                <item name="actionName" xsi:type="string">openModal</item>
+                            </item>
+                            <item name="2" xsi:type="array">
+                                <item name="targetName" xsi:type="string">index=user_testimonial_item_form</item>
+                                <item name="actionName" xsi:type="string">render</item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+                <settings>
+                    <title translate="true">Add Item</title>
+                </settings>
+            </button>
+        </container>
+
+        <dynamicRows name="items" sortOrder="20" component="VaxLtd_PageBuilderCore/js/content-type/form/child-item-dynamic-rows" template="ui/dynamic-rows/templates/grid">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="insertFormProvider" xsi:type="string">index=user_testimonial_item_form</item>
+                    <item name="modalProvider" xsi:type="string">index=user_testimonial_item_modal</item>
+                    <item name="eventPrefix" xsi:type="string">userTestimonialItem</item>
+                    <item name="columnsHeader" xsi:type="boolean">false</item>
+                    <item name="columnsHeaderAfterRender" xsi:type="boolean">true</item>
+                    <item name="renderDefaultRecord" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+            <settings>
+                <dndConfig>
+                    <param name="enabled" xsi:type="boolean">true</param>
+                </dndConfig>
+                <identificationProperty>record_id</identificationProperty>
+                <addButton>false</addButton>
+                <visible>true</visible>
+                <additionalClasses>
+                    <class name="admin__field-wide">true</class>
+                </additionalClasses>
+                <componentType>dynamicRows</componentType>
+            </settings>
+            <container name="record" component="Magento_Ui/js/dynamic-rows/record">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="isTemplate" xsi:type="boolean">true</item>
+                        <item name="is_collection" xsi:type="boolean">true</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                    </item>
+                </argument>
+                <field name="label" component="Magento_Ui/js/form/element/text" template="Magento_PageBuilder/dynamic-rows/element/text" formElement="input">
+                    <settings>
+                        <label translate="true">Label</label>
+                        <visible>true</visible>
+                        <dataScope>label.0.url</dataScope>
+                        <elementTmpl>VaxLtd_PageBuilderCore/dynamic-rows/cells/preview-image</elementTmpl>
+                    </settings>
+                </field>
+                <button name="actions" component="Magento_PageBuilder/js/form/components/action-button" template="Magento_PageBuilder/form/components/dynamic-rows/actions">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="insertFormProvider" xsi:type="string">index = user_testimonial_item_form</item>
+                            <item name="modalProvider" xsi:type="string">index = user_testimonial_item_modal</item>
+                            <item name="noClickEdit" xsi:type="boolean">true</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="targetName" xsi:type="string">${ $.name }</item>
+                                    <item name="actionName" xsi:type="string">edit</item>
+                                    <item name="label" xsi:type="string" translate="true">Edit</item>
+                                </item>
+                                <item name="1" xsi:type="array">
+                                    <item name="targetName" xsi:type="string">${ $.name }</item>
+                                    <item name="actionName" xsi:type="string">deleteRecord</item>
+                                    <item name="label" xsi:type="string" translate="true">Delete</item>
+                                </item>
+                            </item>
+                            <item name="label" translate="true" xsi:type="string">Select</item>
+                        </item>
+                    </argument>
+                </button>
+                <field name="position" formElement="input">
+                    <settings>
+                        <dataType>number</dataType>
+                        <visible>false</visible>
+                        <dataScope>position</dataScope>
+                        <componentType>field</componentType>
+                    </settings>
+                </field>
+            </container>
+        </dynamicRows>
+        <field name="testimonial" sortOrder="15" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Testimonial</label>
+                <dataScope>testimonial</dataScope>
+            </settings>
+        </field>
+        <field name="text" sortOrder="16" formElement="textarea">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Text</label>
+                <dataScope>text</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+
+</form>

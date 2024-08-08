@@ -1,0 +1,18 @@
+<div class="pagebuilder-content-type pagebuilder-smart-wash_slide"
+     data-bind="event: { mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <div attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+        <!-- ko if: isJitPreviewEnabled() -->
+        <div if="displayPreview" class="rendered-content">
+            <iframe sandbox="allow-same-origin" if="widgetUnsanitizedHtml" data-bind="afterRender: initPreviewHtml"
+                    style="width: 100%; border: 0;"></iframe>
+        </div>
+        <!-- /ko -->
+        <!-- ko ifnot: isJitPreviewEnabled() -->
+        <div if="displayPreview" class="rendered-content" html="widgetUnsanitizedHtml"></div>
+        <!-- /ko -->
+        <div ifnot="displayPreview" class="pagebuilder-products-placeholder">
+            <span class="placeholder-text" text="placeholderText"></span>
+        </div>
+    </div>
+    <render args="getOptions().template"></render>
+</div>

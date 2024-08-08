@@ -1,0 +1,39 @@
+<?php
+
+use VaxLtd\PageBuilderFAQs\Block\Widget;
+use Magento\Framework\Escaper;
+//use Hyva\Theme\Model\ViewModelRegistry;
+//use Hyva\Theme\ViewModel\HeroiconsOutline;
+
+/** @var Widget $block */
+/** @var Escaper $escaper */
+///** @var ViewModelRegistry $viewModels */
+///** @var HeroiconsOutline $heroicons */
+
+//$heroicons = $viewModels->require(HeroiconsOutline::class);
+$items = $block->getItems();
+if (is_object($items) && $items instanceof Iterator) {
+    $items = iterator_to_array($items);
+}
+if (!$itemCount = count($items)) {
+    return '';
+}
+$linkWidgetHtml = $this->helper('VaxLtd\PageBuilderCore\Helper\LinkWidgetHtml');
+
+$title = $block->getTitle();
+$description = $block->getDescription();
+?>
+<?php
+
+echo "title " . $title;
+echo "description " . $description;
+
+
+?>
+<?php if ($items): ?>
+    <?php foreach ($items as $item): ?>
+    <?php echo "xem co vao debug k" ?>
+        <?php var_dump($item); ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+

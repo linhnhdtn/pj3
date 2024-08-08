@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="pagebuilder_content_layout_first" class="VaxLtd\PageBuilderContentGrid\Block\Widget\LayoutFirst"
+            placeholder_image="Magento_Cms::images/widget_block.png">
+        <label translate="true">PageBuilder Content Layout 1</label>
+        <description translate="true">PageBuilder Content Layout 1</description>
+        <parameters>
+            <parameter name="items" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Items JSON</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="pagebuilder_content_layout_second" class="VaxLtd\PageBuilderContentGrid\Block\Widget\LayoutSecond"
+            placeholder_image="Magento_Cms::images/widget_block.png">
+        <label translate="true">PageBuilder Content Layout 2</label>
+        <description translate="true">PageBuilder Content Layout 2</description>
+        <parameters>
+            <parameter name="items" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Items JSON</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="pagebuilder_content_layout_third" class="VaxLtd\PageBuilderContentGrid\Block\Widget\LayoutThird"
+            placeholder_image="Magento_Cms::images/widget_block.png">
+        <label translate="true">PageBuilder Content Layout 3</label>
+        <description translate="true">PageBuilder Content Layout 3</description>
+        <parameters>
+            <parameter name="items" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Items JSON</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

@@ -1,0 +1,29 @@
+<?php
+
+use VaxLtd\PageBuilderSmartWashSlide\Block\Widget;
+use Magento\Framework\Escaper;
+//use Hyva\Theme\Model\ViewModelRegistry;
+//use Hyva\Theme\ViewModel\HeroiconsOutline;
+
+/** @var Widget $block */
+/** @var Escaper $escaper */
+///** @var ViewModelRegistry $viewModels */
+///** @var HeroiconsOutline $heroicons */
+
+//$heroicons = $viewModels->require(HeroiconsOutline::class);
+$items = $block->getItems();
+if (is_object($items) && $items instanceof Iterator) {
+    $items = iterator_to_array($items);
+}
+if (!$itemCount = count($items)) {
+    return '';
+}
+$linkWidgetHtml = $this->helper('VaxLtd\PageBuilderCore\Helper\LinkWidgetHtml');
+?>
+
+<?php if ($items): ?>
+    <?php foreach ($items as $item): ?>
+        <?php var_dump($item); ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+

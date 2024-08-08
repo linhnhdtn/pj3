@@ -1,0 +1,37 @@
+<?php
+
+use VaxLtd\PageBuilderHomePageCarousel\Block\Widget;
+use Magento\Framework\Escaper;
+
+//use Hyva\Theme\Model\ViewModelRegistry;
+//use Hyva\Theme\ViewModel\HeroiconsOutline;
+
+/** @var Widget $block */
+/** @var Escaper $escaper */
+///** @var ViewModelRegistry $viewModels */
+///** @var HeroiconsOutline $heroicons */
+
+//$heroicons = $viewModels->require(HeroiconsOutline::class);
+$items = $block->getItems();
+if (is_object($items) && $items instanceof Iterator) {
+    $items = iterator_to_array($items);
+}
+if (!$itemCount = count($items)) {
+    return '';
+}
+$linkWidgetHtml = $this->helper('VaxLtd\PageBuilderCore\Helper\LinkWidgetHtml');
+
+echo "Desktop Image: " . $block->getDesktopImage();
+echo "Mobile Image: " . $block->getMobileImage();
+echo "Video: " . $block->getVideo();
+echo "Video Link: " . $block->getVideoLink();
+echo "Title" . $block->getTitle();
+echo "Description" . $block->getDescription();
+echo "CTA link" . $block->getCtaLink();
+echo "Learn More link" . $block->getLearnMoreLink();
+if ($items): ?>
+    <?php foreach ($items as $item): ?>
+        <?php var_dump($item); ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+

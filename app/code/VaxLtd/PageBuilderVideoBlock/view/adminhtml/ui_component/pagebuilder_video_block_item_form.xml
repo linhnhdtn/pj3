@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                pagebuilder_video_block_item_form.pagebuilder_video_block_item_form_data_source
+            </item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="label" xsi:type="string" translate="true">Item</item>
+    </argument>
+    <settings>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>pagebuilder_video_block_item_form.pagebuilder_video_block_item_form_data_source</dep>
+        </deps>
+        <namespace>pagebuilder_video_block_item_form</namespace>
+        <buttons>
+            <button name="save" class="Magento\PageBuilder\Block\Adminhtml\ContentType\Edit\SaveButton"/>
+            <button name="cancel" class="VaxLtd\PageBuilderPageBanner\Block\Adminhtml\ModalCancelButton"/>
+        </buttons>
+        <selectorPrefix>.block-page-banner-item-form</selectorPrefix>
+    </settings>
+    <dataSource name="pagebuilder_video_block_item_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">
+                    VaxLtd_PageBuilderCore/js/content-type/form/child-item-provider
+                </item>
+                <item name="eventPrefix" xsi:type="string">videoBlockItem</item>
+            </item>
+        </argument>
+        <dataProvider name="pagebuilder_video_block_item_form_data_source"
+                      class="Magento\PageBuilder\Model\ContentType\DataProvider">
+            <settings>
+                <requestFieldName/>
+                <primaryFieldName/>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label/>
+        </settings>
+        <field name="video" formElement="fileUploader" sortOrder="13"
+               template="VaxLtd_PageBuilderCore/form/element/uploader/video">
+            <settings>
+                <label translate="true">Video</label>
+            </settings>
+            <formElements>
+                <fileUploader>
+                    <settings>
+                        <isMultipleFiles>true</isMultipleFiles>
+                        <allowedExtensions>mov mp4</allowedExtensions>
+                        <maxFileSize>20971520</maxFileSize>
+                        <uploaderConfig>
+                            <param xsi:type="string" name="url">vaxltd_pagebuilder/contenttype/video_upload</param>
+                        </uploaderConfig>
+                        <previewTmpl>VaxLtd_PageBuilderCore/form/element/uploader/video/preview</previewTmpl>
+                    </settings>
+                </fileUploader>
+            </formElements>
+        </field>
+        <field name="youtube_url" sortOrder="15" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Youtube Url</label>
+                <dataScope>youtube_url</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>
