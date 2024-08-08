@@ -1,0 +1,45 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="AppearanceSourceProducts" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="3" xsi:type="array">
+                    <item name="value" xsi:type="string">layout_third</item>
+                    <item name="title" xsi:type="string" translate="true">Layout 3</item>
+                    <item name="icon" xsi:type="string">
+                        VaxLtd_PageBuilderAppearanceProduct::css/images/content-type/products/appearance/appearance3.png
+                    </item>
+                </item>
+                <item name="4" xsi:type="array">
+                    <item name="value" xsi:type="string">layout_fourth</item>
+                    <item name="title" xsi:type="string" translate="true">Layout 4</item>
+                    <item name="icon" xsi:type="string">
+                        VaxLtd_PageBuilderAppearanceProduct::css/images/content-type/products/appearance/appearance4.png
+                    </item>
+                </item>
+                <item name="5" xsi:type="array">
+                    <item name="value" xsi:type="string">layout_fifth</item>
+                    <item name="title" xsi:type="string" translate="true">Layout 5</item>
+                    <item name="icon" xsi:type="string">
+                        VaxLtd_PageBuilderAppearanceProduct::css/images/content-type/products/appearance/appearance5.png
+                    </item>
+                </item>
+                <item name="6" xsi:type="array">
+                    <item name="value" xsi:type="string">layout_sixth</item>
+                    <item name="title" xsi:type="string" translate="true">Layout 6</item>
+                    <item name="icon" xsi:type="string">
+                        VaxLtd_PageBuilderAppearanceProduct::css/images/content-type/products/appearance/appearance6.png
+                    </item>
+                </item>
+                <item name="7" xsi:type="array">
+                    <item name="value" xsi:type="string">layout_seventh</item>
+                    <item name="title" xsi:type="string" translate="true">Layout 7</item>
+                    <item name="icon" xsi:type="string">
+                        VaxLtd_PageBuilderAppearanceProduct::css/images/content-type/products/appearance/appearance7.png
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>
