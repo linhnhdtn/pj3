@@ -52,19 +52,13 @@ define([
                 data,
                 config
             );
-            data.title = attributes.title;
-            data.sub_title = attributes.sub_title;
             data.first_label = attributes.first_label;
             data.first_description = attributes.first_description;
             data.second_label = attributes.second_label;
             data.second_description = attributes.second_description;
-            data.url_first_video = attributes.url_first_video;
-            data.url_second_video = attributes.url_second_video;
-            if (attributes.first_video && attributes.first_video != "") {
-                data.first_video = JSON.parse(this.decodeWysiwygCharacters(attributes.first_video));
-            }
-            if (attributes.second_video && attributes.second_video != "") {
-                data.second_video = JSON.parse(this.decodeWysiwygCharacters(attributes.second_video));
+            data.url_video = attributes.url_video;
+            if (attributes.video && attributes.video != "") {
+                data.video = JSON.parse(this.decodeWysiwygCharacters(attributes.video));
             }
 
             return data;
@@ -80,19 +74,15 @@ define([
         _proto.toDom = function toDom(data, config) {
 
             var attributes = {
-                type: "VaxLtd\\PageBuilderDualVideo\\Block\\Widget",
-                template: "VaxLtd_PageBuilderDualVideo::widget.phtml",
-                type_name: "PageBuilder Dual Video Widget",
-                title: data.title,
-                sub_title: data.sub_title,
+                type: "VaxLtd\\PageBuilderDualVideo\\Block\\WidgetFootage",
+                template: "VaxLtd_PageBuilderDualVideo::widget-footage.phtml",
+                type_name: "PageBuilder Footage Video Widget",
                 first_label: data.first_label,
                 first_description: data.first_description,
                 second_label: data.second_label,
                 second_description: data.second_description,
-                url_second_video: data.url_second_video,
-                url_first_video: data.url_first_video,
-                first_video: this.encodeWysiwygCharacters(JSON.stringify(data.first_video)),
-                second_video: this.encodeWysiwygCharacters(JSON.stringify(data.second_video))
+                url_video: data.url_video,
+                video: this.encodeWysiwygCharacters(JSON.stringify(data.video)),
             };
 
             (0, _object.set)(

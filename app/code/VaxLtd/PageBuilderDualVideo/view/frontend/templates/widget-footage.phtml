@@ -1,0 +1,25 @@
+<?php
+
+use VaxLtd\PageBuilderDualVideo\Block\WidgetFootage;
+use Magento\Framework\Escaper;
+//use Hyva\Theme\Model\ViewModelRegistry;
+//use Hyva\Theme\ViewModel\HeroiconsOutline;
+
+/** @var WidgetFootage $block */
+/** @var Escaper $escaper */
+///** @var ViewModelRegistry $viewModels */
+///** @var HeroiconsOutline $heroicons */
+
+//$heroicons = $viewModels->require(HeroiconsOutline::class);
+
+$linkWidgetHtml = $this->helper('VaxLtd\PageBuilderCore\Helper\LinkWidgetHtml');
+
+$data = $block->getData();
+?>
+
+<h1>WidgetFootage</h1>
+<?php
+var_dump($data);
+?>
+
+

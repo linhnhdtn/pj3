@@ -9,7 +9,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Widget\Block\BlockInterface;
 
-class Widget extends \Magento\Framework\View\Element\Template implements BlockInterface
+class WidgetFootage extends \Magento\Framework\View\Element\Template implements BlockInterface
 {
     /**
      * @var Json

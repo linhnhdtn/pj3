@@ -8,7 +8,7 @@
                 pagebuilder_dual_video_form.pagebuilder_dual_video_form_data_source
             </item>
         </item>
-        <item name="label" xsi:type="string" translate="true">FAQs</item>
+        <item name="label" xsi:type="string" translate="true">Video</item>
     </argument>
     <settings>
         <namespace>pagebuilder_dual_video_form</namespace>
