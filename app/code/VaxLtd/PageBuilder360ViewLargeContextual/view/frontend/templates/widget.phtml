@@ -1,0 +1,18 @@
+<?php
+
+use VaxLtd\PageBuilder360ViewLargeContextual\Block\Widget;
+use Magento\Framework\Escaper;
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+
+/** @var Widget $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+/** @var HeroiconsOutline $heroicons */
+
+$heroicons = $viewModels->require(HeroiconsOutline::class);
+
+$items = $block->getItems();
+$data = $block->getData('desktop_background_image');
+
+

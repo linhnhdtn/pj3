@@ -11,4 +11,14 @@
             </parameter>
         </parameters>
     </widget>
+    <widget id="pagebuilder_footage_video" class="VaxLtd\PageBuilderDualVideo\Block\WidgetFootage"
+            placeholder_image="Magento_Cms::images/widget_block.png">
+        <label translate="true">PageBuilder Footage Video Widget</label>
+        <description translate="true">PageBuilder Footage Video Widget</description>
+        <parameters>
+            <parameter name="items" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Items JSON</label>
+            </parameter>
+        </parameters>
+    </widget>
 </widgets>

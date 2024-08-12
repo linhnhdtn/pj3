@@ -1,5 +1,4 @@
 /*eslint-disable */
-
 /* jscs:disable */
 
 function _inheritsLoose(subClass, superClass) {
@@ -52,10 +51,12 @@ define([
                 data,
                 config
             );
-            data.title = attributes.title;
-            data.description = attributes.description;
-            if (attributes.parallax_image && attributes.parallax_image != "") {
-                data.parallax_image = JSON.parse(this.decodeWysiwygCharacters(attributes.parallax_image));
+
+            if (attributes.items && attributes.items != "") {
+                data.desktop_background_image = JSON.parse(this.decodeWysiwygCharacters(attributes.desktop_background_image));
+            }
+            if (attributes.mobile_background_image && attributes.mobile_background_image != "") {
+                data.mobile_background_image = JSON.parse(this.decodeWysiwygCharacters(attributes.mobile_background_image));
             }
             if (attributes.items && attributes.items != "") {
                 data.items = JSON.parse(this.decodeWysiwygCharacters(attributes.items));
@@ -80,13 +81,12 @@ define([
             data.items.sort((propOne, propTwo) => ~~propOne.position - ~~propTwo.position);
 
             var attributes = {
-                type: "VaxLtd\\PageBuilderFlexiPoleBlock\\Block\\Widget",
-                template: "VaxLtd_PageBuilderFlexiPoleBlock::widget.phtml",
-                type_name: "PageBuilder FAQs Page Widget",
-                items: this.encodeWysiwygCharacters(JSON.stringify(data.items)),
-                parallax_image : this.encodeWysiwygCharacters(JSON.stringify(data.parallax_image)),
-                title: data.title,
-                description: data.description
+                type: "VaxLtd\\PageBuilder360ViewLargeContextual\\Block\\Widget",
+                template: "VaxLtd_PageBuilder360ViewLargeContextual::widget.phtml",
+                type_name: "PageBuilder 360 View Large Contextual",
+                desktop_background_image: this.encodeWysiwygCharacters(JSON.stringify(data.items)),
+                mobile_background_image: this.encodeWysiwygCharacters(JSON.stringify(data.mobile_background_image)),
+                items: this.encodeWysiwygCharacters(JSON.stringify(data.items))
             };
 
             (0, _object.set)(

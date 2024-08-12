@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="pagebuilder_360_view_large_contextual" class="VaxLtd\PageBuilder360ViewLargeContextual\Block\Widget"
+            placeholder_image="Magento_Cms::images/widget_block.png">
+        <label translate="true">PageBuilder 360 View Large Contextual Widget</label>
+        <description translate="true">PageBuilder 360 View Large Contextual Widget</description>
+        <parameters>
+            <parameter name="items" xsi:type="text" visible="true" required="true" sort_order="20">
+                <label translate="true">Items JSON</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

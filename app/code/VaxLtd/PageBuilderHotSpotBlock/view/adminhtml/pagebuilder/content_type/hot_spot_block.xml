@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
-    <type name="page_banner"
-          label="Page Banner"
+    <type name="hot_spot_block"
+          label="Hot Spot Block"
           menu_section="custom_component"
           component="Magento_PageBuilder/js/content-type"
           preview_component="VaxLtd_PageBuilderCore/js/content-type/preview"
           master_component="Magento_PageBuilder/js/content-type/master"
-          form="pagebuilder_page_banner_form"
+          form="pagebuilder_hot_spot_form"
           icon="icon-pagebuilder-heading"
           sortOrder="21"
           translate="label">
@@ -19,8 +19,8 @@
         <appearances>
             <appearance name="default"
                         default="true"
-                        preview_template="VaxLtd_PageBuilderPageBanner/content-type/page-banner/default/preview"
-                        master_template="VaxLtd_PageBuilderPageBanner/content-type/page-banner/default/master"
+                        preview_template="VaxLtd_PageBuilderHotSpotBlock/content-type/hot-spot/default/preview"
+                        master_template="VaxLtd_PageBuilderHotSpotBlock/content-type/hot-spot/default/master"
                         reader="Magento_PageBuilder/js/master-format/read/configurable">
                 <elements>
                     <element name="main">
@@ -47,7 +47,7 @@
                     </element>
                 </elements>
                 <converters>
-                    <converter component="VaxLtd_PageBuilderPageBanner/js/widget-directive" name="widget_directive">
+                    <converter component="VaxLtd_PageBuilderHotSpotBlock/js/widget-directive" name="widget_directive">
                         <config>
                             <item name="html_variable" value="html"/>
                         </config>

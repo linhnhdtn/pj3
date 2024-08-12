@@ -8,6 +8,16 @@
                 <item name="0" xsi:type="array">
                     <item name="value" xsi:type="string">default</item>
                     <item name="title" xsi:type="string" translate="true">Default</item>
+                    <item name="icon" xsi:type="string">
+                        VaxLtd_PageBuilderDualVideo::css/images/content-type/video/image2.png
+                    </item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">footage</item>
+                    <item name="title" xsi:type="string" translate="true">Footage</item>
+                    <item name="icon" xsi:type="string">
+                        VaxLtd_PageBuilderDualVideo::css/images/content-type/video/image1.png
+                    </item>
                 </item>
             </argument>
         </arguments>

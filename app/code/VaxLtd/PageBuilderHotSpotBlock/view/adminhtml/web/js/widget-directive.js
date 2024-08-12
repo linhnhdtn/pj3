@@ -53,9 +53,9 @@ define([
                 config
             );
             data.title = attributes.title;
-            data.description = attributes.description;
-            if (attributes.parallax_image && attributes.parallax_image != "") {
-                data.parallax_image = JSON.parse(this.decodeWysiwygCharacters(attributes.parallax_image));
+            data.sub_title = attributes.sub_title;
+            if (attributes.background_image && attributes.background_image != "") {
+                data.background_image = JSON.parse(this.decodeWysiwygCharacters(attributes.background_image));
             }
             if (attributes.items && attributes.items != "") {
                 data.items = JSON.parse(this.decodeWysiwygCharacters(attributes.items));
@@ -72,21 +72,15 @@ define([
          */
 
         _proto.toDom = function toDom(data, config) {
-            if (!data.items || !data.items.length) {
-                return data;
-            }
-
-            // sort items by position
-            data.items.sort((propOne, propTwo) => ~~propOne.position - ~~propTwo.position);
 
             var attributes = {
-                type: "VaxLtd\\PageBuilderFlexiPoleBlock\\Block\\Widget",
-                template: "VaxLtd_PageBuilderFlexiPoleBlock::widget.phtml",
-                type_name: "PageBuilder FAQs Page Widget",
-                items: this.encodeWysiwygCharacters(JSON.stringify(data.items)),
-                parallax_image : this.encodeWysiwygCharacters(JSON.stringify(data.parallax_image)),
+                type: "VaxLtd\\PageBuilderHotSpotBlock\\Block\\Widget",
+                template: "VaxLtd_PageBuilderHotSpotBlock::widget.phtml",
+                type_name: "PageBuilder Hot Spot Block Widget",
                 title: data.title,
-                description: data.description
+                sub_title: data.sub_title,
+                background_image: this.encodeWysiwygCharacters(JSON.stringify(data.background_image)),
+                items: this.encodeWysiwygCharacters(JSON.stringify(data.items))
             };
 
             (0, _object.set)(
@@ -104,6 +98,10 @@ define([
         ;
 
         _proto.encodeWysiwygCharacters = function encodeWysiwygCharacters(content) {
+            if (!content || (Array.isArray(content) && content.length === 0) || (typeof content === 'string' && content === '')) {
+                return "";
+            }
+
             return content.replace(/"/g, "`").replace(/\\/g, "|").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         }
         /**
