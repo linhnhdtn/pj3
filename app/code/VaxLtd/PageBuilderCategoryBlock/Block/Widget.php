@@ -47,4 +47,23 @@ class Widget extends \Magento\Framework\View\Element\Template implements BlockIn
 
         return $items;
     }
+
+    /**
+     * @param $fileJson
+     * @return array|bool|float|int|mixed|string|null
+     */
+    public function convertFile($fileJson)
+    {
+        $file = [];
+        if ($fileJson != "") {
+            try {
+                $fileJson = str_replace(['`', '|', '<', '>'], ['"', '\\', '<', '>'], $fileJson);
+                $file = $this->serializer->unserialize($fileJson);
+            } catch (\InvalidArgumentException $exception) {
+                $file = [];
+            }
+        }
+
+        return $file;
+    }
 }

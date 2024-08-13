@@ -55,6 +55,9 @@ define([
             data.title = attributes.title;
             data.sub_title = attributes.sub_title;
             data.button_text = attributes.button_text;
+            if (attributes.root_category_url && attributes.root_category_url != "") {
+                data.root_category_url = JSON.parse(this.decodeWysiwygCharacters(attributes.root_category_url));
+            }
             if (attributes.items && attributes.items != "") {
                 data.items = JSON.parse(this.decodeWysiwygCharacters(attributes.items));
             }
@@ -82,6 +85,7 @@ define([
                 template: "VaxLtd_PageBuilderCategoryBlock::widget.phtml",
                 type_name: "PageBuilder Category Block Widget",
                 items: this.encodeWysiwygCharacters(JSON.stringify(data.items)),
+                root_category_url: this.encodeWysiwygCharacters(JSON.stringify(data.root_category_url)),
                 title: data.title,
                 sub_title: data.sub_title,
                 button_text: data.button_text
